@@ -5,7 +5,7 @@ sleep 5s
 #Actualizando los repositorios
     sudo add-apt-repository http://archive.ubuntu.com/ubuntu -y
     sudo add-apt-repository ppa:nilarimogard/webupd8 -y
-    sudo apt-add-repository --component non-free
+    sudo sed -i.bak 's/buster[^ ]* main$/& contrib non-free/g' /etc/apt/sources.list
     sudo apt update -y
 #Instalando todo
     sudo apt install git -y
