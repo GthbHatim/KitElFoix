@@ -1,31 +1,27 @@
 #!/bin/bash
-if [[ $EUID -ne 0 ]]; then
-   	echo "Error 1" 
-   	exit 1
-else
-PS3="Elige tu opción: "
-opciones=("Los esenciales" "Juegos" "Programas" "Otros" "Salir")
-select opt in "${opciones[@]}"
-do
-    case $opt in 
+#Menu de opciones inicial
 
-        "Los esenciales") echo "Vamos a instalar las cosas basicas! $CONT " 
-                bash ./recursos/esenc.sh; break
-        ;;
+clear
 
-        "Juegos") echo "Que juego quieres instalar? $CONT " 
-                bash ./recursos/menujuegos.sh; break
-        ;;
+opcion=0
 
-        "Programas") echo "Que programa quieres? $CONT "
-                bash ./recursos/menuprogramas.sh; break
-        ;;
+while [$opcion -ne 5]; do
+        echo "1. Esenciales"
+        echo "2. Juegos"
+        echo "3. Programas"
+        echo "4. Otros"
+        echo "5. Salir"
+        read opcion
 
-        "Otros") echo "Que quieres hacer? $CONT"
-                bash ./recursos/menuotros.sh; break
-        ;;
-        "Salir") break 2
-        ;;
-        *) echo "Opcion no válida."
-    esac
+        case $opcion
+        1) sudo bash ./recursos/esenc.sh ;;
+        2) sudo bash ./recursos/juegos.sh ;;
+        3) sudo bash ./recursos/programas.sh ;;
+        4) sudo bash ./recursos/otros.sh ;;
+        5) echo "Cerrando."
+        *) echo "Invalido, comando inexistente."
+                opcion=0
+                ;;
+        esac
+        sleep 5s
 done
