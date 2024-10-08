@@ -20,12 +20,10 @@ sleep 5s
     sudo apt install thunar -y
     sudo apt install unrar-free -y
     #Instalando Wine (x64 y x32)
-    sudo dpkg --add-architecture i386 && sudo apt update
-    sudo apt install \
-      wine \
-      wine32 \
-      wine64 \
-      libwine \ 
-      libwine:i386 \
-      fonts-wine -y
+    sudo dpkg --add-architecture i386
+    sudo mkdir -pm755 /etc/apt/keyrings
+    sudo wget -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/debian/dists/bookworm/winehq-bookworm.sources
+    sudo apt update -y
+    sudo apt install --install-recommends winehq-stable -y
+
 
