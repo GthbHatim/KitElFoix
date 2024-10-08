@@ -5,6 +5,7 @@ sleep 5s
 #Actualizando los repositorios
     sudo add-apt-repository http://archive.ubuntu.com/ubuntu -y
     sudo add-apt-repository ppa:nilarimogard/webupd8 -y
+    sudo apt-add-repository --component non-free
     sudo apt update -y
 #Instalando todo
     sudo apt install git -y
@@ -18,3 +19,13 @@ sleep 5s
     #----------------------------------------
     sudo apt install thunar -y
     sudo apt install unrar-free -y
+    #Instalando Wine (x64 y x32)
+    sudo dpkg --add-architecture i386 && sudo apt update
+    sudo apt install \
+      wine \
+      wine32 \
+      wine64 \
+      libwine \ 
+      libwine:i386 \
+      fonts-wine -y
+
