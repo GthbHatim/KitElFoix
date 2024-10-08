@@ -24,6 +24,4 @@ sleep 5s
     sudo mkdir -pm755 /etc/apt/keyrings
     sudo wget -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/debian/dists/bookworm/winehq-bookworm.sources
     sudo apt update -y
-    sudo apt install --install-recommends winehq-stable -y
-
-
+    sudo apt install --install-recommends winehq-stable -yg
