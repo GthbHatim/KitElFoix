@@ -7,6 +7,12 @@ sleep 5s
     sudo add-apt-repository http://archive.ubuntu.com/ubuntu -y
     sudo add-apt-repository ppa:nilarimogard/webupd8 -y
     sudo apt-add-repository --component non-free
+    sudo mkdir -pm755 /etc/apt/keyrings
+    sudo wget -O /etc/apt/keyrings/winehq-archive.key https://dl.winehq.org/wine-builds/winehq.key
+    sudo wget -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/debian/dists/bookworm/winehq-bookworm.sources
+    sudo apt install -y wget apt-transport-https gpg
+    wget -qO - https://packages.adoptium.net/artifactory/api/gpg/key/public | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/adoptium.gpg > /dev/null
+    echo "deb https://packages.adoptium.net/artifactory/deb $(awk -F= '/^VERSION_CODENAME/{print$2}' /etc/os-release) main" | sudo tee /etc/apt/sources.list.d/adoptium.list
     sudo apt update -y
 #Instalando todo
     sudo apt install git -y
@@ -22,9 +28,8 @@ sleep 5s
     sudo apt install unrar-free -y
     #Instalando Wine (x64 y x32)
     sudo dpkg --add-architecture i386
-    sudo mkdir -pm755 /etc/apt/keyrings
-    sudo wget -O /etc/apt/keyrings/winehq-archive.key https://dl.winehq.org/wine-builds/winehq.key
-    sudo wget -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/debian/dists/bookworm/winehq-bookworm.sources
     sudo apt update -y
     sudo apt install wine-stable-amd64 wine-stable-i386 libc6 wine-stable -y
     sudo apt install --install-recommends winehq-stable -y
+    #Instalando Java JDK 21 (Adoptium)
+    sudo apt install temurin-21-jdk
