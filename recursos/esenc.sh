@@ -33,5 +33,6 @@ sleep 5s
     sudo apt install wine-stable-amd64 wine-stable-i386 libc6 wine-stable -y
     sudo apt install --install-recommends winehq-stable -y
     sudo apt install winetricks -y
+    DISPLAY=:0 winecfg
     #Instalando Java JDK 21 (Adoptium)
     sudo apt install temurin-21-jdk -y
