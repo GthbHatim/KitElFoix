@@ -7,6 +7,7 @@ sleep 5s
     sudo add-apt-repository http://archive.ubuntu.com/ubuntu -y
     sudo add-apt-repository ppa:nilarimogard/webupd8 -y
     sudo apt-add-repository --component non-free
+    sudo sed -r -i 's/^deb(.*)$/deb\1 contrib/g' /etc/apt/sources.list
     sudo mkdir -pm755 /etc/apt/keyrings
     sudo wget -O /etc/apt/keyrings/winehq-archive.key https://dl.winehq.org/wine-builds/winehq.key
     sudo wget -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/debian/dists/bookworm/winehq-bookworm.sources
@@ -31,5 +32,6 @@ sleep 5s
     sudo apt update -y
     sudo apt install wine-stable-amd64 wine-stable-i386 libc6 wine-stable -y
     sudo apt install --install-recommends winehq-stable -y
+    sudo apt install winetricks -y
     #Instalando Java JDK 21 (Adoptium)
-    sudo apt install temurin-21-jdk
+    sudo apt install temurin-21-jdk -y
