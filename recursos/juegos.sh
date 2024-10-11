@@ -9,7 +9,7 @@ while [ $opcion -ne 5 ] ; do
         echo "2. Minecraft"
         echo "3. The Binding of Isaac"
         echo "4. *MAS POR VENIR*"
-        echo "5. Salir"
+        echo "5. Volver atras"
         read -p "Selecciona una opcion: " opcion
 
         case "$opcion" in
@@ -22,8 +22,8 @@ while [ $opcion -ne 5 ] ; do
         4) echo "Pa que le das si es literal un mensaje?"
             opcion=0 
         ;;
-        5) echo "Cerrando."
-           exit 1     
+        5) echo "Vale"
+           sudo bash ./Menu.sh 
         ;;
         *) echo "Invalido, comando inexistente."
                 opcion=0 ;;
