@@ -2,5 +2,6 @@
 clear
     curl -O https://download2341.mediafire.com/d54tuk0uef0gRjA4ZLW38X-N-2cUZBHTTTIwPUQri0qnLH65q4YyyEMGcEEVTdMKm-tXjP8O_28xuh7K2fH-ykeOWF8FnvCLk35g5kDqs8jMiY2U4yrlMKhVAaNESBTgngtv2pSpalos50in5emnxMRrgDW4-4meZaAimhvyAn50hg/ql9iv29ogael14m/Geometry+Dash.rar
     unrar -x Geometry+Dash.rar
+    rm -f ./Geometry+Dash.rar
     cd "Geometry Dash"
     wine GeometryDash.exe
