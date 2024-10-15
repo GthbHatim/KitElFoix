@@ -27,12 +27,15 @@ sleep 5s
     #----------------------------------------
     sudo apt install thunar -y
     sudo apt install unrar-free -y
+    sudo apt install axel -y
     #Instalando Wine (x64 y x32)
     sudo dpkg --add-architecture i386
     sudo apt update -y
     sudo apt install wine-stable-amd64 wine-stable-i386 libc6 wine-stable -y
     sudo apt install --install-recommends winehq-stable -y
     sudo apt install winetricks -y
-    DISPLAY=:0 winecfg
     #Instalando Java JDK 21 (Adoptium)
     sudo apt install temurin-21-jdk -y
+    #Instalando Flatpak
+    sudo apt install flatpak -y
+    sudo flatpak --user remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
